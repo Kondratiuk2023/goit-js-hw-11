@@ -8,13 +8,20 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <form id="search-form">
-      <input type="text" id="search-input" placeholder="Search images..." />
-      <button type="submit">Search</button>
+    <form class="main_form" action="submit">
+      <input
+        name="inputElement"
+        type="text"
+        class="input_el"
+        placeholder="Search images..."
+      />
+      <button class="button_el" type="submit">Search</button>
     </form>
-    <div class="gallery"></div>
-    <script type="module" src="./js/pixabay-api.js"></script>
-    <script type="module" src="./js/reder-functions.js"></script>
+    <div class="gallery_box">
+      <ul class="list_gallery"></ul>
+      <div class="loader loading"></div>
+    </div>
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>

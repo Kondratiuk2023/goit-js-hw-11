@@ -1,16 +1,21 @@
-// import iziToast from "izitoast";
-// import "izitoast/dist/css/iziToast.min.css";
+export function searchImages(searchWord, myGallery) {
+    const BASE_URL = "https://pixabay.com/api/";
+    const params = new URLSearchParams({
+        key: '43346019-e2cdab7ada109c45f6a1c5d2a',
+        q: searchWord, 
+        image_type: "photo",
+        orientation: "horizontal",
+        safesearch: true,
+    });
 
-const axios = require('axios');
-const apiKey = '43346019-e2cdab7ada109c45f6a1c5d2a';
-
-axios.get(`https://pixabay.com/api/?key=${apiKey}&q=природа&per_page=5`)
-  .then(function (response) {
-    // обробка отриманих даних
-    const images = response.data.hits;
-    console.log(images);
-  })
-  .catch(function (error) {
-    // обробка помилки
-    console.error(error);
-  });
+    return fetch(`${BASE_URL}?${params}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch images');
+            }
+            return response.json();
+        })
+        .catch(error => {
+            throw new Error('Failed to fetch images');
+        });
+}
