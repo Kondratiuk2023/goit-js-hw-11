@@ -7,16 +7,25 @@
     <title>Goit-js-hw-11</title>
     
     <script type="module" crossorigin src="/goit-js-hw-11/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-e3b0c442.css">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/vendor-8c59ed88.js">
+    <link rel="stylesheet" href="/goit-js-hw-11/assets/vendor-1cd1f9d9.css">
+    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-a41645cb.css">
   </head>
   <body>
-    <form id="search-form">
-      <input type="text" id="search-input" placeholder="Search images..." />
-      <button type="submit">Search</button>
+    <form class="main_form" action="submit">
+      <input
+        name="inputElement"
+        type="text"
+        class="input_el"
+        placeholder="Search images..."
+      />
+      <button class="button_el" type="submit">Search</button>
     </form>
-    <div class="gallery"></div>
-    
-    
+    <div class="gallery_box">
+      <ul class="list_gallery"></ul>
+      <div class="loader loading"></div>
+    </div>
+
     
   </body>
 </html>
