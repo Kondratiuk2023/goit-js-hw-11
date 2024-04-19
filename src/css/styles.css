@@ -97,8 +97,8 @@
   color: #2e2f42;
 }
 /* Стилі для завантажувача */
-/* .loader {
-  width: 48px;
+.loader {
+  /* width: 48px;
   height: 48px;
   border: 5px solid black;
   border-bottom-color: transparent;
@@ -114,5 +114,5 @@
   }
   100% {
     transform: rotate(360deg);
-  }
-} */
+  } */
+}
