@@ -1,21 +1,20 @@
-export function searchImages(searchWord, myGallery) {
-    const BASE_URL = "https://pixabay.com/api/";
-    const params = new URLSearchParams({
-        key: '43346019-e2cdab7ada109c45f6a1c5d2a',
-        q: searchWord, 
-        image_type: "photo",
-        orientation: "horizontal",
-        safesearch: true,
-    });
+export async function doFetch(aim, textToWait) {
+  const API_KEY = '16991331-df0a6792d36af314f174a3b15';
+  const url = 'https://pixabay.com/api/';
 
-    return fetch(`${BASE_URL}?${params}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch images');
-            }
-            return response.json();
-        })
-        .catch(error => {
-            throw new Error('Failed to fetch images');
-        });
+  const params = new URLSearchParams({
+    key: API_KEY,
+    q: aim,
+    image_type: 'photo',
+    orientation: 'horizontal',
+    safesearch: true,
+    per_page: 9,
+  });
+
+  return fetch(`${url}?${params}`).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
 }

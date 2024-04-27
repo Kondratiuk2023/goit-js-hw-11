@@ -1,9 +1,8 @@
-
-export function renderGallery(receivedObject) {
-const neccesaryArray = receivedObject.hits;
-return neccesaryArray
+export function makeGallery(getedObject) {
+  const neccesaryArray = getedObject.hits;
+  return neccesaryArray
     .map(
-    ({
+      ({
         webformatURL,
         largeImageURL,
         tags,
@@ -11,31 +10,31 @@ return neccesaryArray
         views,
         comments,
         downloads,
-    }) => `
+      }) => `
         <li class="card">
-            <div>
+            <div class="place-for-image">
                 <a href="${largeImageURL}">
                     <img src="${webformatURL}" alt="${tags}" class="picture"/>
                 </a>
             </div>
-            <ul class='descriptions'>
-                <li class='descriptions_item'>
-                    <span>Likes</span>
-                    <span>${likes}</span>
-                </li>
-                <li class='descriptions_item'>
-                    <span>Views</span>
-                    <span>${views}</span>
-                </li>
-                <li class='descriptions_item'>
-                    <span>Comments</span>
-                    <span>${comments}</span>
-                </li>
-                <li class='descriptions_item'>
-                    <span>Downloads</span>
-                    <span>${downloads}</span>
-                </li>
-            </ul>
+            <div class="info-text">
+                <div class="description">
+                    <span class="bold-text">Likes</span>
+                    <span class="info-value">${likes}</span>
+                </div>
+                <div class="description">
+                    <span class="bold-text">Views</span>
+                    <span class="info-value">${views}</span>
+                </div>
+                <div class="description">
+                    <span class="bold-text">Comments</span>
+                    <span class="info-value">${comments}</span>
+                </div>
+                <div class="description">
+                    <span class="bold-text">Downloads</span>
+                    <span class="info-value">${downloads}</span>
+                </div>
+            </div>
         </li>`
     )
     .join('');
